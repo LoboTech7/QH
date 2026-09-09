@@ -1,0 +1,28 @@
+# ── .NET build output ──────────────────────────
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ── EF Migrations (behold .cs filer, ignorer cache) ─
+# Migrations gemmes i source control — ingen ekskludering her
+
+# ── Hemmeligheder ───────────────────────────────
+appsettings.Development.json
+*.env
+.env
+
+# ── OS ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ─────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+
+# ── Node (frontend) ─────────────────────────────
+node_modules/
+.next/
