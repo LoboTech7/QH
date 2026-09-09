@@ -107,37 +107,37 @@ erDiagram
     }
 
     %% Brugere og huse
-    USERS ||--o{ HOUSES : "ejer (client)"
-    USERS ||--o{ HOUSE_PMS : "er PM på"
-    HOUSES ||--o{ HOUSE_PMS : "har PM"
+    USERS ||--o{ HOUSES : "client ejer hus"
+    USERS ||--o{ HOUSE_PMS : "PM tilknyttet hus"
+    HOUSES ||--o{ HOUSE_PMS : "hus har PM"
 
     %% Opgaver
-    HOUSES ||--o{ TASKS : "har"
-    USERS ||--o{ TASKS : "udfører (craftsman)"
-    TASKS ||--o{ TASK_DEPENDENCIES : "afhænger af"
-    TASKS ||--o{ TASK_DEPENDENCIES : "blokerer"
+    HOUSES ||--o{ TASKS : "hus har opgaver"
+    USERS ||--o{ TASKS : "haandvaerker udforer opgave"
+    TASKS ||--o{ TASK_DEPENDENCIES : "opgave blokkeres af"
+    TASKS ||--o{ TASK_DEPENDENCIES : "opgave blokerer"
 
     %% Kundebeslutninger
-    HOUSES ||--o{ CLIENT_DECISIONS : "har"
-    TASKS ||--o{ CLIENT_DECISIONS : "relateret til"
+    HOUSES ||--o{ CLIENT_DECISIONS : "hus har beslutninger"
+    TASKS ||--o{ CLIENT_DECISIONS : "beslutning paavirker opgave"
 
     %% Materialer og items
-    HOUSES ||--o{ ITEMS : "har"
-    ITEMS ||--o{ ITEMS : "underitem af"
+    HOUSES ||--o{ ITEMS : "hus har materialer"
+    ITEMS ||--o{ ITEMS : "item har underitems"
 
     %% Kommentarer
-    USERS ||--o{ COMMENTS : "skriver"
-    HOUSES ||--o{ COMMENTS : "på"
-    TASKS ||--o{ COMMENTS : "på"
-    ITEMS ||--o{ COMMENTS : "på"
+    USERS ||--o{ COMMENTS : "bruger skriver kommentar"
+    HOUSES ||--o{ COMMENTS : "kommentar paa hus"
+    TASKS ||--o{ COMMENTS : "kommentar paa opgave"
+    ITEMS ||--o{ COMMENTS : "kommentar paa materiale"
 
     %% Filer og billeder
-    HOUSES ||--o{ MEDIA : "har"
-    USERS ||--o{ MEDIA : "uploader"
-    TASKS ||--o{ MEDIA : "tilknyttet"
-    ITEMS ||--o{ MEDIA : "tilknyttet"
+    HOUSES ||--o{ MEDIA : "hus har filer"
+    USERS ||--o{ MEDIA : "bruger uploader fil"
+    TASKS ||--o{ MEDIA : "fil tilknyttet opgave"
+    ITEMS ||--o{ MEDIA : "fil tilknyttet materiale"
 
     %% Notifikationer og log
-    USERS ||--o{ NOTIFICATIONS : "modtager"
-    USERS ||--o{ AUDIT_LOGS : "udfører"
+    USERS ||--o{ NOTIFICATIONS : "bruger faar notifikation"
+    USERS ||--o{ AUDIT_LOGS : "bruger logges i historik"
 ```
