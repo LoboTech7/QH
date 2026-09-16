@@ -94,11 +94,13 @@ public class AppDbContext : DbContext
             .HasForeignKey(cd => cd.HouseId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        // NoAction fordi SQL Server ikke tillader multiple cascade paths
+        // (House → Task → ClientDecision og House → ClientDecision ville skabe en løkke)
         modelBuilder.Entity<ClientDecision>()
             .HasOne(cd => cd.RelatedTask)
             .WithMany(t => t.ClientDecisions)
             .HasForeignKey(cd => cd.RelatedTaskId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<ClientDecision>()
             .Property(cd => cd.Status)
@@ -168,13 +170,13 @@ public class AppDbContext : DbContext
             .HasOne(m => m.Task)
             .WithMany(t => t.Media)
             .HasForeignKey(m => m.TaskId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<Media>()
             .HasOne(m => m.Item)
             .WithMany(i => i.Media)
             .HasForeignKey(m => m.ItemId)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<Notification>()
             .HasOne(n => n.User)

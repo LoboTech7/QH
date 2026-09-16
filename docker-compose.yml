@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: qh-sqlserver
+    environment:
+      SA_PASSWORD: "QH_Dev_2026!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - qh-sqldata:/var/opt/mssql
+
+volumes:
+  qh-sqldata:

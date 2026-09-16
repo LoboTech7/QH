@@ -7,9 +7,9 @@ public class Task
     public int? CraftsmanId { get; set; }
     public string Name { get; set; } = string.Empty;
     public DateOnly StartDate { get; set; }
-    public DateOnly EndDate { get; set; }
+    public int DurationDays { get; set; }
     public DateOnly? BaselineStartDate { get; set; }
-    public DateOnly? BaselineEndDate { get; set; }
+    public int? BaselineDurationDays { get; set; }
     public bool IsCompleted { get; set; } = false;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
